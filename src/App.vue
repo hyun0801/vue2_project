@@ -1,7 +1,9 @@
 <template>
   <div class="outer">
     <Header></Header>
-    <Home></Home>
+    <!-- 路由组件部分开始 -->
+    <router-view></router-view>
+    <!-- <Home></Home> -->
     <Footer></Footer>
   </div>
 </template>

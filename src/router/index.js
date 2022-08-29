@@ -30,8 +30,8 @@ export default new VueRouter({
       component: Search,
     },
     {
-      path: "/resgiter",
-      name: "resgiter", //配置路径别名
+      path: "/register",
+      name: "register", //配置路径别名
       component: Resgiter,
     },
     //设置路由的重定向,在/ 目录下重定向到home组件下
