@@ -19,3 +19,7 @@ lintOnSave: true,
 ```js
 npm i less less-loader
 ```
+### vue脚手架-路由的使用
+```js
+npm install vue-router@4
+```

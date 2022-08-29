@@ -18,6 +18,10 @@ export default {
     Footer,
     Home,
   },
+  //   mounted() {
+  //     console.log(this.$router);
+  //     console.log(this.$route);
+  //   },
 };
 </script>
 
