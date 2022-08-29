@@ -25,9 +25,10 @@ export default new VueRouter({
       component: Login,
     },
     {
-      path: "/search",
+      path: "/search/:keyword?",
       name: "search", //配置路径别名
       component: Search,
+      props: (route) => ({ ...route.params, ...route.query }),
     },
     {
       path: "/register",

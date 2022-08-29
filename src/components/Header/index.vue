@@ -37,8 +37,8 @@
       </h1>
       <div class="searchArea">
         <form action="###" class="searchForm">
-          <input type="text" id="autocomplete" class="input-error input-xxlarge" />
-          <button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+          <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="keyword" />
+          <button class="sui-btn btn-xlarge btn-danger" type="button" @click="goSearch">搜索</button>
         </form>
       </div>
     </div>
@@ -48,6 +48,21 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      keyword: undefined,
+    };
+  },
+  methods: {
+    goSearch() {
+      this.$router.push({
+        name: "search",
+        params: {
+          keyword: this.keyword,
+        },
+      });
+    },
+  },
 };
 </script>
 
