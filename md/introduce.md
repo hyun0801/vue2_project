@@ -15,3 +15,7 @@ lintOnSave: true,
     open: true,
   },
 ```
+### 安装less插件
+```js
+npm i less less-loader
+```
