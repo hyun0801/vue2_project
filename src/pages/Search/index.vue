@@ -1,6 +1,7 @@
 <template>
   <div>
     Search
+    <TapNav></TapNav>
     <!-- 全写形式 -->
     <h1>{{ this.$route.params.keyword }}</h1>
     <!-- props形式 -->
@@ -12,10 +13,10 @@
 export default {
   name: "Search",
   props: ["keyword"],
-  mounted() {
-    console.log(this.$router);
-    console.log(this.$route);
-  },
+  //   mounted() {
+  //     console.log(this.$router);
+  //     console.log(this.$route);
+  //   },
 };
 </script>
 

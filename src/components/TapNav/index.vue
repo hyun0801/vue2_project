@@ -1696,7 +1696,7 @@
 
 <script>
 export default {
-  name: "",
+  name: "TapNav",
 };
 </script>
 

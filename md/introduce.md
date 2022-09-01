@@ -132,3 +132,12 @@ Search组件中接收
     <!-- props形式 -->
     <h1>{{ keyword }}</h1>
 ```
+
+### 将三级分类注册为全局组件 并在Home组件与Search组件中使用
+```js
+//将tapnav注册为全局组件
+import TapNav from "@/components/TapNav";
+
+//将tapnav注册为全局组件
+Vue.component("TapNav", TapNav);
+```

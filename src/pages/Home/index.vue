@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import TapNav from "./TapNav/index.vue";
 import ListContainer from "./ListContainer/index.vue";
 import Recommed from "./Recommed/index.vue";
 import Rank from "./Rank/index.vue";
@@ -26,7 +25,6 @@ import Floors from "./Floors/index.vue";
 export default {
   name: "Home",
   components: {
-    TapNav,
     ListContainer,
     Recommed,
     Rank,
