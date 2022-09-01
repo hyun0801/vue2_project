@@ -141,3 +141,54 @@ import TapNav from "@/components/TapNav";
 //将tapnav注册为全局组件
 Vue.component("TapNav", TapNav);
 ```
+### 解决编程式导航多次点击报错的问题
+vue-router3.1.0之后, 引入了push()的promise的语法
+如果没有通过参数指定成功或者失败回调函数就返回一个promise来指定成功/失败的回调
+ 且内部会判断如果要跳转的路径和参数都没有变化, 会抛出一个失败的promise
+
+#### 解决方式-指定成功或失败的回调函数
+```js
+  this.$router.push(
+        {
+          name: "search",
+          params: {
+            keyword: this.keyword,
+          },
+        },
+        () => {},
+        () => {}
+      );
+```
+#### 使用catch捕获错误
+```js
+  this.$router
+        .push({
+          name: "search",
+          params: {
+            keyword: this.keyword,
+          },
+        })
+        .catch(() => {});
+    },
+```
+#### 修改原型上router原型上的push方法
+```js
+//重写原型上的push方法
+VueRouter.prototype.push = function (location, successCb, errorCb) {
+  if (successCb === undefined && errorCb === undefined) {
+    //如果不传成功或失败的回调函数,我们则自己传进去
+    originPush.call(this, location).catch(() => {});
+  } else {
+    originPush.call(this, location, successCb, errorCb);
+  }
+};
+//重写原型上的replace方法
+VueRouter.prototype.replace = function (location, successCb, errorCb) {
+  if (successCb === undefined && errorCb === undefined) {
+    //如果不传成功或失败的回调函数,我们则自己传进去
+    originReplace.call(this, location).catch(() => {});
+  } else {
+    originReplace.call(this, location, successCb, errorCb);
+  }
+};
+```
